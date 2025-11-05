@@ -1,10 +1,10 @@
 
 def extract_data(raw_data):
     """
-    Return two new lists: title-cased s_names and integer s_grades using the raw roster layout.
+    Return two new lists: title-cased s_names and integer s_grades using the raw roster layout. DONE
 
     - Use slicing or ``.split()`` (see the README assumptions) to extract:
-        - the student name between the two colons, then convert to title case (e.g., ``"ana lopez"`` -> ``"Ana Lopez"``).
+        - the student name between the two colons, then convert to title case (e.g., ``"ana lopez"`` -> ``"Ana Lopez"``). .TITLE()
         - the two-digit grade at the end of the raw record, then convert to ``int`` using the ``int()`` function.
     TIP: Because names are variable-length, negative slicing is useful both for the grade  and for getting 'to the end of' the name portion.
                         
@@ -14,7 +14,13 @@ def extract_data(raw_data):
     s_names = []
     s_grades = []
 
-    # ADD YOUR CODE HERE
+    # ADD YOUR CODE HERE .title changes the name convention and int() would define the grade as an int
+    for names in raw_data: 
+        names = raw_data[10:-18]
+        s_name = names 
+    for grades in raw_data:
+        grades = raw_data[20 :-22]
+        s_grades = grades  
 
     return s_names, s_grades
 
@@ -26,6 +32,14 @@ def curve_grades(grades, by_amount):
     Return the list containing the curved grades (same list if modified, otherwise new).
     """
     # ADD YOUR CODE HERE
+    curved_grades= []
+    while i < len(grades):
+        if grades >100:
+         grades = 100
+        buy_amount = grades  
+        curved_grades.append[buy_amount]
+        i+=1 
+    return curved_grades
 
 
 def print_top_performers(names, grades):
@@ -40,6 +54,10 @@ def print_top_performers(names, grades):
     """
     # ADD YOUR CODE HERE
 
+    for i in print_top_performers:
+        if i in grades >= 95:
+
+         print(f"{name}: {grade}")
 
 def main():
 
@@ -69,13 +87,13 @@ def main():
     # names = ["Ana Lopez", "Priya Singh", "Max Jones", "Li Chen", "Zoe Brown", "Nico Garcia", "Minh Nguyen", "Carla Perez", "Noel Davis", "Hana Kim", "Ravi Patel", "Jade Morgan", "Eli Smith", "Aria Reed", "Theo Allen"]
     # grades = [78, 97, 85, 88, 73, 81, 90, 84, 76, 96, 69, 87, 82, 91, 77]
 
-    updated_grades = curve_grades(grades, 5)
+    #updated_grades = curve_grades(grades, 5)
     
     # If you were unable to correctly curve the grades,
     # uncomment the list below so you can use the curved grades in the next function
     # updated_grades = [83, 100, 90, 93, 78, 86, 95, 89, 81, 100, 74, 92, 87, 96, 82]
     
-    print_top_performers(names, updated_grades)
+    #print_top_performers(names, updated_grades)
 
 
 if __name__ == "__main__":
